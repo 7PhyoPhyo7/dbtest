@@ -235,7 +235,7 @@ app.post('/register_books', (req,res)=> {
 
      
 
-     db.collection("Book").doc("collectionSu").set(elements);
+     db.collection("Book").doc("collectionSu").set({genre:elements});
      db.collection("Book").doc("collectionSu").collection("collectionInnwa").add(
      	{
      	author:author,
