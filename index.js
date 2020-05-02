@@ -236,7 +236,7 @@ app.post('/register_books', (req,res)=> {
      
 
      db.collection("Book").doc(bookname).set({genre:elements});
-     db.collection("Book").doc(bookname).collection(bookshopname).set({
+     db.collection("Book").doc(bookname).collection(bookshopname).doc(bookshopname).set({
      	
      	address:bookshopaddress,
      	bookshopphno:bookshopphno,
