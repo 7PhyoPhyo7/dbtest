@@ -233,14 +233,26 @@ app.post('/register_books', (req,res)=> {
 
 
 
-     
-
-     db.collection("Book").doc(bookname).set({genre:elements});
+     db.collection("Book").doc(id,'==',`${bookname}`).get().then(booknamelist => {
+     if(booknamelist.empty)
+     {
+     	db.collection("Book").doc(bookname).set({genre:elements});
      db.collection("Book").doc(bookname).collection(bookshopname).doc(bookshopname).set({
      	
      	address:bookshopaddress,
      	bookshopphno:bookshopphno,
      	stock:stock})
+     }
+     else 
+     {
+     	db.collection("Book").doc(bookname).collection(bookshopname).doc(bookshopname).set({
+     	address:bookshopaddress,
+     	bookshopphno:bookshopphno,
+     	stock:stock})
+     }
+     });
+     
+     
 
 })
 
