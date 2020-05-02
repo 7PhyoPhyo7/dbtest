@@ -158,10 +158,10 @@ app.post('/admin', (req, res) => {
                     "webview_height_ratio": "full"
                   },
                   {
-                    "type":"postback",
-                   // "url":"https://bookherokuwp.herokuapp.com/book_list/",
-                    "title":"Books List",
-                    "payload" : "booklist"
+                    "type":"web_url",
+                    "url":"https://dbtestingwp.herokuapp.com/edit_book/"+senderID,
+                    "title":"Register Books",
+                    "webview_height_ratio": "full"
                   },
                ]}
 
@@ -216,6 +216,7 @@ app.post('/register_books', (req,res)=> {
 	var bookshopphno = req.body.bookshopphno;
 	var stock = req.body.stock; 
 	var adminid = req.body.sender;
+	var link = req.body.link;
     
 	
     
@@ -250,6 +251,7 @@ app.post('/register_books', (req,res)=> {
      				address:bookshopaddress,
      				bookshopphno:bookshopphno,
      				stock:stock,
+     				link:link,
      			    adminid:adminid})
      		}
      		else 
@@ -259,6 +261,7 @@ app.post('/register_books', (req,res)=> {
      	
      			address:bookshopaddress,
      			bookshopphno:bookshopphno,
+     			link:link,
      			adminid:adminid})
      		}
      	})
