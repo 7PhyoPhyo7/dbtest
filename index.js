@@ -240,8 +240,7 @@ app.post('/register_books', (req,res)=> {
      	
      	address:bookshopaddress,
      	bookshopphno:bookshopphno,
-     	stock:stock,
-        merge: true})
+     	stock:stock})
 
 })
 
