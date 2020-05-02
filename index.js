@@ -202,12 +202,15 @@ app.get('/register_books/:sender_id',function(req,res){
 app.post('/register_books', (req,res)=> {
 
     var elements = [];
+    let data = 
+    {
 	var author = req.body.author;
 	var bookshopname = req.body.bookshopname;
 	var bookname = req.body.bookname;
 	var bookshopaddress = req.body.bookshopaddress;
 	var bookshopphno = req.body.bookshopphno;
-	var stock = req.body.stock;
+	var stock = req.body.stock; 
+    }
 	
     
     if(req.body.romance)
@@ -230,14 +233,11 @@ app.post('/register_books', (req,res)=> {
      console.log(elements);
 
 
-     db.collection("Book").doc("collectionBeLu").add();
-     db.collection("Book").doc("collectionBeLu").collection("collectionInnwa").add();
-
 
      
 
-     db.collection("Book").doc("collectionSu").set();
-     db.collection("Book").doc("collectionSu").collection("collectionInnwa").add();
+     db.collection("Book").doc("collectionSu").set(genre:elements);
+     db.collection("Book").doc("collectionSu").collection("collectionInnwa").set(author:author,bookshopname:bookshopname,bookshopaddress:bookshopaddress);
 
 })
 
