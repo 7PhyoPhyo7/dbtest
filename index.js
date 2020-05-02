@@ -316,6 +316,17 @@ app.get('/edit_book/:sender_id/:bookname',function(req,res){
      
 });
 
+app.post('/edit_book',function(req,res){
+	let link =  req.body.link;
+	let bookshopaddress = req.body.bookshopaddress;
+	let stock =req.body.stock;
+	let bookshopphno = req.body.bookshopphno;
+	let bookname = req.body.bookname;
+	let bookshopname = req.body.bookshopname;
+
+	db.collection('Bookkk').doc(bookname).collection("bookshop").doc(bookshopname).update({address:bookshopaddress,stock:stock,bookshopphno:bookshopphno,link:link},{merge: true})
+})
+
 
 // Creates the endpoint for our webhook 
 app.post('/webhook', (req, res) => {  
