@@ -5,7 +5,10 @@
 	requestify=require('requestify'),
 	express = require('express'),
 	bodyParser = require('body-parser'),
-	PageAccessToken='EAAHZAqUeuVxgBAO2RaZANoSbC3Jxs2FPMPbMwWWQbT8SuqZAOR3dX0G5xiVMdUUUmoMPISwv4sphWePsLOnA4e2OR351u6MpDPjHv1fCvyCzujegrZA4ihCetxRoZCatuMs4aDu33sH9xKjmAjBQ470MdBBzQFWuM3ZB1wzyA3owZAS8FOpQzoEZBWsHEJqalWIZD',
+	 request = require('request'),
+  	ejs = require("ejs"),
+ 	fs = require('fs'),
+	PageAccessToken=process.env.PAGE_ACCESS_TOKEN,
 	app = express().use(bodyParser.json()); // creates express http server 
 	const sendmessageurl='https://graph.facebook.com/v4.0/me/messages?access_token='+PageAccessToken
 	
@@ -81,7 +84,7 @@ app.get('/', (req, res)=>{
 app.get('/webhook', (req, res) => {
 
   // Your verify token. Should be a random string.
-  let VERIFY_TOKEN = "19950419"
+  let VERIFY_TOKEN = process.env.VERIFICATION_TOKEN;
    
   // Parse the query params
   let mode = req.query['hub.mode'];
