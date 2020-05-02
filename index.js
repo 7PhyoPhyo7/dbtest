@@ -12,7 +12,12 @@
 	app = express().use(bodyParser.json()); // creates express http server 
 	const sendmessageurl='https://graph.facebook.com/v4.0/me/messages?access_token='+PageAccessToken
 	
-	
+app.use(express.static('public'));
+app.use(express.urlencoded());
+
+
+app.set('view engine', 'ejs');
+app.set('views', __dirname+'/public');
 var admin = require("firebase-admin");
 
 var serviceAccount = {
@@ -194,6 +199,8 @@ app.get('/register_books/:sender_id',function(req,res){
     res.render('testing.ejs',{ title:"Please Register Books", sender_id:sender_id});
 });
 
+
+
 // Creates the endpoint for our webhook 
 app.post('/webhook', (req, res) => {  
  
@@ -263,7 +270,7 @@ app.post('/webhook', (req, res) => {
 
 function addBook(senderID)
 {
-	db.collection('Book').
+	//db.collection('Book').
 }
 
 
