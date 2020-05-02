@@ -202,11 +202,6 @@ app.get('/register_books/:sender_id',function(req,res){
 app.post('/register_books', (req,res)=> {
 
     var elements = [];
-	var romance;
-	var horror;
-	var thrill;
-	var political;  
-
 	var author = req.body.author;
 	var bookshopname = req.body.bookshopname;
 	var bookname = req.body.bookname;
@@ -233,6 +228,16 @@ app.post('/register_books', (req,res)=> {
     }
     
      console.log(elements);
+
+
+     db.collection("Book").doc("collectionBeLu").add();
+     db.collection("Book").doc("collectionBeLu").collection("collectionInnwa").add();
+
+
+     
+
+     db.collection("Book").doc("collectionSu").set();
+     db.collection("Book").doc("collectionSu").collection("collectionInnwa").add();
 
 })
 
