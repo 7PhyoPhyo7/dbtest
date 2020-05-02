@@ -206,7 +206,7 @@ app.post('/register_books', (req,res)=> {
 	var author = req.body.author;
 	var bookshopname = req.body.bookshopname;
 	var bookname = req.body.bookname;
-	var bookshopaddress = req.body.bookshopaddress;
+	var bookshopaddress = req.body.bookshopnameaddress;
 	var bookshopphno = req.body.bookshopphno;
 	var stock = req.body.stock; 
     
@@ -235,13 +235,13 @@ app.post('/register_books', (req,res)=> {
 
      
 
-    // db.collection("Book").doc("collectionSu").set({genre:elements});
-     db.collection("Book").doc("collectionSu").collection("collectionInnwa").add({
+     db.collection("Book").doc(bookname).set({genre:elements});
+     db.collection("Book").doc(bookname).collection(bookshopname).set({
      	
-     	
-     	stock:stock
-
-     	});
+     	address:bookshopaddress,
+     	bookshopphno:bookshopphno,
+     	stock:stock,
+        merge: true})
 
 })
 
