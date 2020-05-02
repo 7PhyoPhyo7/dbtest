@@ -236,13 +236,7 @@ app.post('/register_books', (req,res)=> {
      
 
      db.collection("Book").doc("collectionSu").set({genre:elements});
-     db.collection("Book").doc("collectionSu").collection("collectionInnwa").set(
-     	{
-     	addresss:bookshopaddress,
-     	bookshopphno:bookshopphno,
-     	stock:stock
-
-     	});
+     db.collection("Book").doc("collectionSu").collection("collectionInnwa").set();
 
 })
 
