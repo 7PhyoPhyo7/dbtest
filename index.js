@@ -306,13 +306,14 @@ app.get('/edit_book/:sender_id/:bookname',function(req,res){
            	stock = doc.data().stock;
            	bookshopphno = doc.data().bookshopphno;
            })
- 		})
-      console.log("Link",link);
+            console.log("Link",link);
       console.log("bookshopname",bookshopname);
       console.log("BookshopAddress",bookshopaddress);
       console.log("stock",stock);
       console.log("bookshopphno",bookshopphno);
     res.render('edit_book.ejs',{ title:"Please Edit Books", sender_id:sender_id,link:link,bookshopname:bookshopname,bookshopaddress:bookshopaddress,stock:stock,bookshopphno,bookname:bookname});
+ 		})
+     
 });
 
 
