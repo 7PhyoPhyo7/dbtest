@@ -122,7 +122,49 @@ app.post('/admin', (req, res) => {
 	var userInput = req.body.userInput
 	var senderID = req.body.senderID
 	if(userInput == 'Hi'){
-		textMessage(senderID,'Welcome Admin')
+		textMessage(senderID,'Welcome Admin');
+		requestify.post('https://graph.facebook.com/v2.6/me/messages?access_token='+PAGE_ACCESS_TOKEN,
+  {
+    "recipient":{
+      "id":senderID
+    },
+  "message":{
+   "attachment":{
+        "type":"template",
+        "payload":{
+          "template_type":"generic",
+          "elements":[
+             {
+              "title":text,
+              "subtitle":"Please Register Book",
+                "buttons":[
+                  // {
+                  //    "type": "postback",
+                  //   "title": "Register",
+                  //   "payload" : "Fake"
+                  // "url":"https://bophyo.herokuapp.com/bookregister/",
+                  // "webview_height_ratio": "full",
+                  // "messenger_extensions": true, 
+                  // }
+                  {
+                    "type":"web_url",
+                    "url":"https://dbtestingwp.herokuapp.com/register_books/"+senderID,
+                    "title":"Register Books",
+                    "webview_height_ratio": "full"
+                  },
+                  {
+                    "type":"postback",
+                   // "url":"https://bookherokuwp.herokuapp.com/book_list/",
+                    "title":"Books List",
+                    "payload" : "booklist"
+                  },
+               ]}
+
+        ]
+      }
+    }
+  }
+  })
 	}
 })
 
@@ -134,13 +176,23 @@ app.post('/advisor', (req, res) => {
 	}
 })
 
+
+
+
 app.post('/user', (req, res) => {
 	var userInput = req.body.userInput
 	var senderID = req.body.senderID
 	if(userInput == 'Hi'){
 		textMessage(senderID,'Welcome User')
 	}
+	
+
 })
+
+app.get('/register_books/:sender_id',function(req,res){
+  const sender_id = req.params.sender_id;
+    res.render('testing.ejs',{ title:"Please Register Books", sender_id:sender_id});
+});
 
 // Creates the endpoint for our webhook 
 app.post('/webhook', (req, res) => {  
@@ -166,7 +218,7 @@ app.post('/webhook', (req, res) => {
     	var userInput=webhook_event.message.text;
     }
 	if (webhook_event.message.attachments){
-		var userMedia=webhook_event.message.attachments.payload.url;
+		var userMedia=webhook_event.message.attachments.payload;
 
 	}}
 	 
@@ -208,6 +260,11 @@ app.post('/webhook', (req, res) => {
   }
 
 });
+
+function addBook(senderID)
+{
+	db.collection('Book').
+}
 
 
 
