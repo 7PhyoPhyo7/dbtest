@@ -203,7 +203,7 @@ app.post('/register_books', (req,res)=> {
 
 	var romace = req.body.romace;
 	var horror = req.body.horror;
-	var horror = req.body.thrill;
+	var thrill = req.body.thrill;
 	var political = req.body.political;
 	var author = req.body.author;
 	var bookshopname = req.body.bookshopname;
@@ -213,6 +213,7 @@ app.post('/register_books', (req,res)=> {
 	var stock = req.body.stock;
 	console.log(romace);
 	console.log(horror);
+	console.log(thrill);
 	console.log(political);
 	console.log(author);
 
