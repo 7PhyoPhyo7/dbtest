@@ -201,11 +201,11 @@ app.get('/register_books/:sender_id',function(req,res){
 
 app.post('/register_books', (req,res)=> {
 
-  
-	var romance = req.body.romance;
-	var horror = req.body.horror;
-	var thrill = req.body.thrill;
-	var political = req.body.political;  
+    var elements = [];
+	var romance;
+	var horror;
+	var thrill;
+	var political;  
 
 	var author = req.body.author;
 	var bookshopname = req.body.bookshopname;
@@ -213,13 +213,26 @@ app.post('/register_books', (req,res)=> {
 	var bookshopaddress = req.body.bookshopaddress;
 	var bookshopphno = req.body.bookshopphno;
 	var stock = req.body.stock;
-	console.log(romance);
-	console.log(horror);
-	console.log(thrill);
-	console.log(political);
-	console.log(author);
+	
     
-
+    if(req.body.romance)
+    {
+    	elements.push(req.body.romance);
+    }
+    if (req.body.horror)
+    {
+    	elements.push(req.body.horror);
+    }
+    if (req.body.thrill)
+    {
+    	elements.push(req.body.thrill);
+    }
+    if (req.body.political)
+    {
+    	elements.push(req.body.political);
+    }
+    
+     console.log(elements);
 
 })
 
