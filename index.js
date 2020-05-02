@@ -174,12 +174,12 @@ app.post('/webhook', (req, res) => {
 			if(adminList.empty){
 				db.collection('BookAdvisor').where('id','==',`${senderID}`).get().then(advisorList => {
 					if(advisorList.empty){
-						requestify.post('https://winbookadvisor.herokuapp.com/user', {
+						requestify.post('https://dbtestingwp.herokuapp.com/user', {
 							userInput: userInput || null,
 							senderID: senderID
 						})
 					}else{
-						requestify.post('https://winbookadvisor.herokuapp.com/advisor', {
+						requestify.post('https://dbtestingwp.herokuapp.com/advisor', {
 							userInput: userInput || null,
 							senderID: senderID,
 							video: userMedia
@@ -187,7 +187,7 @@ app.post('/webhook', (req, res) => {
 					}
 				})
 			}else{
-				requestify.post('https://winbookadvisor.herokuapp.com/admin', {
+				requestify.post('https://dbtestingwp.herokuapp.com/admin', {
 					userInput: userInput || null,
 					senderID: senderID,
 					image: userMedia
