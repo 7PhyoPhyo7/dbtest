@@ -248,38 +248,65 @@ app.post('/register_books', (req,res)=> {
         })
      })
 
-     db.collection("Book").get().then(booknamelist => {
-     	booknamelist.forEach(doc=>
-     	{
-     		if(doc.id == bookname)
-     		{
-     				db.collection("Book").doc(bookname).collection(bookshopname).doc(bookshopname).set({
+     // db.collection("Bookkk").doc(bookname).collection("bookshop").doc(bookshopname).get().then(booknamelist => {
+     // 	booknamelist.forEach(doc=>
+     // 	{
+     // 		if(doc.id == bookname)
+     // 		{
+     // 				db.collection("Book").doc(bookname).collection(bookshopname).doc(bookshopname).set({
      	
-     				address:bookshopaddress,
-     				bookshopphno:bookshopphno,
-     				stock:stock,
-     				link:link,
-     			    adminid:adminid})
-     		}
-     		else 
-     		{
-     			 db.collection("Book").doc(bookname).set({genre:elements});
-    			 db.collection("Book").doc(bookname).collection(bookshopname).doc(bookshopname).set({
+     // 				address:bookshopaddress,
+     // 				bookshopphno:bookshopphno,
+     // 				stock:stock,
+     // 				link:link,
+     // 			    adminid:adminid})
+     // 		}
+     // 		else 
+     // 		{
+     // 			 db.collection("Book").doc(bookname).set({genre:elements});
+    	// 		 db.collection("Book").doc(bookname).collection(bookshopname).doc(bookshopname).set({
      	
-     			address:bookshopaddress,
-     			bookshopphno:bookshopphno,
-     			link:link,
-     			adminid:adminid})
-     		}
-     	})
+     // 			address:bookshopaddress,
+     // 			bookshopphno:bookshopphno,
+     // 			link:link,
+     // 			adminid:adminid})
+     // 		}
+     // 	})
 
 
 
      
     
    
-     })
+     // })
      
+     db.collection("Bookkk").get().then(booklist=>{
+     	booklist.forEach(doc=>{
+     		if(doc.id == bookname)
+     		{
+     			db.collection("Bookkk").doc(bookname).collection("bookshop").doc(bookshopname).set({
+     				address:bookshopaddress,
+     				bookshopphno:bookshopphno,
+     				stock:stock,
+     				link:link,
+     			    adminid:adminid
+
+     			})
+     		}
+     		else
+     		{
+                	 db.collection("Bookkk").doc(bookname).set({genre:elements});
+                	 db.collection("Bookkk").doc(bookname).collection("bookshop").doc(bookshopname).set({
+     				address:bookshopaddress,
+     				bookshopphno:bookshopphno,
+     				stock:stock,
+     				link:link,
+     			    adminid:adminid
+
+     			})
+     		}
+     	})
+     })
      
 
 })
