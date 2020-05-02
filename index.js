@@ -202,15 +202,14 @@ app.get('/register_books/:sender_id',function(req,res){
 app.post('/register_books', (req,res)=> {
 
     var elements = [];
-    let data = 
-    {
+   
 	var author = req.body.author;
 	var bookshopname = req.body.bookshopname;
 	var bookname = req.body.bookname;
 	var bookshopaddress = req.body.bookshopaddress;
 	var bookshopphno = req.body.bookshopphno;
 	var stock = req.body.stock; 
-    }
+    
 	
     
     if(req.body.romance)
