@@ -128,7 +128,7 @@ app.post('/admin', (req, res) => {
 	var senderID = req.body.senderID
 	if(userInput == 'Hi'){
 	//	textMessage(senderID,'Welcome Admin');
-		requestify.post('https://graph.facebook.com/v2.6/me/messages?access_token='+PAGE_ACCESS_TOKEN,
+		requestify.post('https://graph.facebook.com/v2.6/me/messages?access_token='+PageAccessToken,
   {
     "recipient":{
       "id":senderID
