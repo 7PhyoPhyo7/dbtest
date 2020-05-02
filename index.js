@@ -126,6 +126,7 @@ function textMessage(senderID,text){
 app.post('/admin', (req, res) => {
 	var userInput = req.body.userInput
 	var senderID = req.body.senderID
+	var bookname = "Doctor"
 	if(userInput == 'Hi'){
 	//	textMessage(senderID,'Welcome Admin');
 		requestify.post('https://graph.facebook.com/v2.6/me/messages?access_token='+PageAccessToken,
@@ -159,7 +160,7 @@ app.post('/admin', (req, res) => {
                   },
                   {
                     "type":"web_url",
-                    "url":"https://dbtestingwp.herokuapp.com/edit_book/"+senderID+"/"+"Doctor",
+                    "url":"https://dbtestingwp.herokuapp.com/edit_book/"+senderID+"/"+bookname,
                     "title":"Edit Books",
                     "webview_height_ratio": "full"
                   },
