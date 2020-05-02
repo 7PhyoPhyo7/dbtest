@@ -199,6 +199,25 @@ app.get('/register_books/:sender_id',function(req,res){
     res.render('testing.ejs',{ title:"Please Register Books", sender_id:sender_id});
 });
 
+app.post('/register_books', (req,res)=> {
+
+	var romace = req.body.romace;
+	var horror = req.body.horror;
+	var horror = req..body.thrill;
+	var political = req.body.political;
+	var author = req.body.author;
+	var bookshopname = req.body.bookshopname;
+	var bookname = req.body.bookname;
+	var bookshopaddress = req.body.bookshopaddress;
+	var bookshopphno = req.body.bookshopphno;
+	var stock = req.body.stock;
+	console.log(romace);
+	console.log(horror);
+	console.log(political);
+	console.log(author);
+
+	})
+
 
 
 // Creates the endpoint for our webhook 
