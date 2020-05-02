@@ -201,10 +201,12 @@ app.get('/register_books/:sender_id',function(req,res){
 
 app.post('/register_books', (req,res)=> {
 
+  
 	var romance = req.body.romance;
 	var horror = req.body.horror;
 	var thrill = req.body.thrill;
-	var political = req.body.political;
+	var political = req.body.political;  
+
 	var author = req.body.author;
 	var bookshopname = req.body.bookshopname;
 	var bookname = req.body.bookname;
@@ -216,8 +218,8 @@ app.post('/register_books', (req,res)=> {
 	console.log(thrill);
 	console.log(political);
 	console.log(author);
+    
 
-	})
 
 
 
