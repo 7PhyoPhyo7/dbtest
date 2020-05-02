@@ -301,8 +301,8 @@ app.get('/edit_book/:sender_id/:bookname',function(req,res){
  		db.collection("Bookkk").doc(bookname).collection("bookshop").where('adminid','==',`${sender_id}`).get().then(booklist=>{
            booklist.forEach(doc=>{
            	link = doc.data().link;
-           	bookshopname = doc.data().bookshopname;
-           	bookshopaddress = doc.data().bookshopaddress;
+           	bookshopname = doc.id;
+           	bookshopaddress = doc.data().address;
            	stock = doc.data().stock;
            	bookshopphno = doc.data().bookshopphno;
            })
