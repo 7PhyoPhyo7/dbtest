@@ -159,7 +159,7 @@ app.post('/admin', (req, res) => {
                   },
                   {
                     "type":"web_url",
-                    "url":"https://dbtestingwp.herokuapp.com/edit_book/"+senderID,
+                    "url":"https://dbtestingwp.herokuapp.com/edit_book/"+senderID+"/"+"Doctor",
                     "title":"Edit Books",
                     "webview_height_ratio": "full"
                   },
@@ -289,9 +289,25 @@ app.post('/register_books', (req,res)=> {
 })
 
 
-app.get('/edit_book/:sender_id',function(req,res){
+app.get('/edit_book/:sender_id/:bookname',function(req,res){
   const sender_id = req.params.sender_id;
-    res.render('edit_book.ejs',{ title:"Please Edit Books", sender_id:sender_id});
+  const bookname = req.params.bookname;
+  var link;
+  var bookshopname;
+  var bookshopaddress;
+  var stock;
+  var bookshopphno;
+ 		db.collection("Bookkk").doc(bookname).collection("bookshop").where('adminid','==',`${sender_id}`).get().then(booklist=>{
+           booklist.forEach(doc=>{
+           	link = doc.data().link;
+           	bookshopname = doc.data().bookshopname;
+           	bookshopaddress = doc.data().bookshopaddress;
+           	stock = doc.data().stock;
+           	bookshopphno = doc.data().bookshopphno;
+           })
+ 		})
+
+    res.render('edit_book.ejs',{ title:"Please Edit Books", sender_id:sender_id,link:link,bookshopname:bookshopname,bookshopaddress:bookshopaddress,stock:stock,bookshopphno,bookname:bookname});
 });
 
 

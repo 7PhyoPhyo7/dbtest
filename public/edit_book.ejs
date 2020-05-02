@@ -45,64 +45,36 @@
   
   <div class="form-group">
     <label for="bookname">Book Name</label>
-    <input type="text" class="form-control" id="bookname" name="bookname" placeholder="bookname">
+    <input type="text" class="form-control" id="bookname" name="bookname" value="<%= bookname %>">
   </div> 
-  <div class="form-group">
-    <label for="author">Author</label>
-    <input type="text" class="form-control" id="author" name="author" placeholder="author">
-  </div> 
+  
   <div class="form-group">
     <label for="bookshopname">bookshopname</label>
-  <input type="text" class="form-control" id="bookshopname" name="bookshopname" placeholder="bookshopname">  
+  <input type="text" class="form-control" id="bookshopname" name="bookshopname" value="<%= bookshopname %>">  
   </div>   
    <div class="form-group">
-    <label for="bookshopnameaddress">bookshopnameaddress</label>
-  <input type="text" class="form-control" id="bookshopnameaddress" name="bookshopnameaddress" placeholder="bookshopnameaddress">  
+    <label for="bookshopaddress">bookshopnameaddress</label>
+  <input type="text" class="form-control" id="bookshopaddress" name="bookshopaddress" value="<%= bookshopaddress %>">  
   </div> 
   <div class="form-group">
     <label for="bookshopphno">bookshopphno</label>
-  <input type="number" class="form-control" id="bookshopphno" name="bookshopphno" placeholder="bookshopphno">  
+  <input type="number" class="form-control" id="bookshopphno" name="bookshopphno" value="<%= bookshopphno %>">  
   </div>   
    <div class="form-group">
     <label for="stock">stock</label>
-  <input type="number" class="form-control" id="stock" name="stock" placeholder="stock">  
+  <input type="number" class="form-control" id="stock" name="stock" value="<%= stock %>">  
   </div> 
   <div class="form-group">
     <label for="link">Facebook Page Link</label>
-  <input type="text" class="form-control" id="link" name="link" placeholder="link">  
+  <input type="text" class="form-control" id="link" name="link" value="<%= link %>">  
   </div> 
 
-  <div>
-<input type="checkbox" id="horror" name="horror" value="horror">
-<label for="horror"> Horror</label><br>
-
-<input type="checkbox" id="romance" name="romance" value="romance">
-<label for="romance"> Romance</label><br>
-
-<input type="checkbox" id="thrill" name="thrill" value="thrill">
-<label for="thrill">Thrill</label><br>
-
-<input type="checkbox" id="science" name="science" value="science">
-<label for="science">Science</label><br>
-
-<input type="checkbox" id="biography" name="biography" value="biography">
-<label for="biography">Biography</label><br>
-
-<input type="checkbox" id="political" name="political" value="political">
-<label for="political">Political</label><br>
-  </div>
+ 
     <input type="hidden"  id="sender" name="sender" value="<%= sender_id %>">
   <input type="submit" value="Submit"> 
   </form>
 
-   <script>
-     var horror = document.getElementById("horror").checked;
-     var romance = document.getElementById("romance").checked;
-     var thrill = document.getElementById("thrill").checked;
-     var science = document.getElementById("science").checked;
-     var biography = document.getElementById("biography").checked;
-     var political = document.getElementById("political").checked;
-   </script>
+ 
   
   <script>
       
