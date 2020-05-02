@@ -215,6 +215,7 @@ app.post('/register_books', (req,res)=> {
 	var bookshopaddress = req.body.bookshopnameaddress;
 	var bookshopphno = req.body.bookshopphno;
 	var stock = req.body.stock; 
+	var adminid = req.body.sender;
     
 	
     
@@ -248,7 +249,8 @@ app.post('/register_books', (req,res)=> {
      	
      				address:bookshopaddress,
      				bookshopphno:bookshopphno,
-     				stock:stock})
+     				stock:stock,
+     			    adminid:adminid})
      		}
      		else 
      		{
@@ -257,7 +259,7 @@ app.post('/register_books', (req,res)=> {
      	
      			address:bookshopaddress,
      			bookshopphno:bookshopphno,
-     			stock:stock})
+     			adminid:adminid})
      		}
      	})
      
