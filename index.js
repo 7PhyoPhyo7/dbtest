@@ -160,7 +160,7 @@ app.post('/admin', (req, res) => {
                   {
                     "type":"web_url",
                     "url":"https://dbtestingwp.herokuapp.com/edit_book/"+senderID,
-                    "title":"Register Books",
+                    "title":"Edit Books",
                     "webview_height_ratio": "full"
                   },
                ]}
@@ -236,49 +236,26 @@ app.post('/register_books', (req,res)=> {
     {
     	elements.push(req.body.political);
     }
-    
-     console.log(elements);
+    if (req.body.biography)
+    {
+    	elements.push(req.body.biography);
+    }
+    if (req.body.science)
+    {
 
+        elements.push(req.body.science);
+    }
+    console.log(elements);
 
-   db.collection("Bookkk").doc("Doctor").collection("bookshop").get().then(list => {
-        list.forEach(doc=>
-        {
-        	console.log("BookshopAddress",doc.data().bookshopaddress);
-        	console.log("stock",doc.data().stock);
-        })
-     })
+   // db.collection("Bookkk").doc("Doctor").collection("bookshop").get().then(list => {
+   //      list.forEach(doc=>
+   //      {
+   //      	console.log("BookshopAddress",doc.data().bookshopaddress);
+   //      	console.log("stock",doc.data().stock);
+   //      })
+   //   })
 
-     // db.collection("Bookkk").doc(bookname).collection("bookshop").doc(bookshopname).get().then(booknamelist => {
-     // 	booknamelist.forEach(doc=>
-     // 	{
-     // 		if(doc.id == bookname)
-     // 		{
-     // 				db.collection("Book").doc(bookname).collection(bookshopname).doc(bookshopname).set({
-     	
-     // 				address:bookshopaddress,
-     // 				bookshopphno:bookshopphno,
-     // 				stock:stock,
-     // 				link:link,
-     // 			    adminid:adminid})
-     // 		}
-     // 		else 
-     // 		{
-     // 			 db.collection("Book").doc(bookname).set({genre:elements});
-    	// 		 db.collection("Book").doc(bookname).collection(bookshopname).doc(bookshopname).set({
-     	
-     // 			address:bookshopaddress,
-     // 			bookshopphno:bookshopphno,
-     // 			link:link,
-     // 			adminid:adminid})
-     // 		}
-     // 	})
-
-
-
-     
-    
-   
-     // })
+  
      
      db.collection("Bookkk").get().then(booklist=>{
      	booklist.forEach(doc=>{
@@ -295,7 +272,7 @@ app.post('/register_books', (req,res)=> {
      		}
      		else
      		{
-                	 db.collection("Bookkk").doc(bookname).set({genre:elements});
+                	 db.collection("Bookkk").doc(bookname).set({genre:elements,author:author});
                 	 db.collection("Bookkk").doc(bookname).collection("bookshop").doc(bookshopname).set({
      				address:bookshopaddress,
      				bookshopphno:bookshopphno,
@@ -310,6 +287,13 @@ app.post('/register_books', (req,res)=> {
      
 
 })
+
+
+app.get('/edit_book/:sender_id',function(req,res){
+  const sender_id = req.params.sender_id;
+    res.render('edit_book.ejs',{ title:"Please Edit Books", sender_id:sender_id});
+});
+
 
 // Creates the endpoint for our webhook 
 app.post('/webhook', (req, res) => {  
