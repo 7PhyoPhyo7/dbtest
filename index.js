@@ -240,6 +240,13 @@ app.post('/register_books', (req,res)=> {
      console.log(elements);
 
 
+   db.collection("Bookkk").doc("Doctor").collection("bookshop").get().then(list => {
+        list.forEach(doc=>
+        {
+        	console.log("BookshopAddress",doc.data().bookshopaddress);
+        	console.log("stock",doc.data().stock);
+        })
+     })
 
      db.collection("Book").get().then(booknamelist => {
      	booknamelist.forEach(doc=>
@@ -265,6 +272,9 @@ app.post('/register_books', (req,res)=> {
      			adminid:adminid})
      		}
      	})
+
+
+
      
     
    
