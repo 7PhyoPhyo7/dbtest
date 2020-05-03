@@ -426,15 +426,15 @@ function searchBooks(senderID,bookname)
     db.collection("Bookkk").doc(bookname).collection("bookshop").limit(1).get().then(list => {
         list.forEach(doc=>
         {
-        	// textBookMessage(senderID,"BookshopName",doc.id);
-        	// textBookAddress(senderID,"Bookshop Address",address);
-        	// textBookMessage(senderID,"Bookshop Website",link);
-        	// textBookMessage(senderID, "Stock",stock);
+        	textBookMessage(senderID,"BookshopName",doc.id);
+        	textBookAddress(senderID,"Bookshop Address",doc.data().address);
+        	textBookMessage(senderID,"Bookshop Website",doc.data().link);
+        	textBookMessage(senderID, "Stock",doc.data().stock);
              
                 elmentitem.push(doc.id);
-                elmentitem.push(addresss);
-                elmentitem.push(link);
-                elmentitem.push(stock); 
+                elmentitem.push(doc.data().address);
+                elmentitem.push(doc.data().link);
+                elmentitem.push(doc.data().stock); 
 
 
         	console.log("Element Inside"+ elmentitem);
