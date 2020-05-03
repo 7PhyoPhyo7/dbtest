@@ -423,7 +423,7 @@ function textBookAddress(senderID,pretext,result){
 function searchBooks(senderID,bookname)
 {
 	var elmentitem = [];
-    db.collection("Bookkk").doc(bookname).collection("bookshop").limit(1).get().then(list => {
+    db.collection("Bookkk").doc(bookname).collection("bookshop").get().then(list => {
         list.forEach(doc=>
         {
         	textBookMessage(senderID,"BookshopName",doc.id);
