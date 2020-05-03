@@ -430,8 +430,9 @@ function searchBooks(senderID,bookname)
        docid =doc.id;
         db.collection("Bookkk").doc(docid).get().then(genrelist=>{
          genrelist.forEach(doc=>{
-         	  bookwithgenre.push(docid,doc.data().genre);
-         	  console.log(bookwithgenre);
+         	  // bookwithgenre.push(docid,doc.data().genre);
+         	  // console.log(bookwithgenre);
+         	  console.log(doc.data().genre);
          })
         })
   	})
