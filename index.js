@@ -452,7 +452,9 @@ function searchBooks(senderID,bookname)
          	textMessage(senderID,"----------");
          	}
           }
-     })
+     }).catch(err => {
+    console.log('Error getting documents', err);
+  })
 }
 
 
