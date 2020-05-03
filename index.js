@@ -440,9 +440,21 @@ function searchBooks(senderID,bookname)
   			 switch(element) 
   			 {        
       		case element[0] :
-      		console.log("element",element[0] );
+      		//console.log("element",element[0] );
           textMessage(senderID,element[0]);
-        	break;              
+        	break;
+        	case element[1] :
+      		//console.log("element",element[0] );
+          textMessage(senderID,element[1]);
+        	break; 
+        	case element[2] :
+      		//console.log("element",element[0] );
+          textMessage(senderID,element[2]);
+        	break; 
+        	case element[3] :
+      		//console.log("element",element[0] );
+          textMessage(senderID,element[3]);
+        	break;               
       		default:
           textMessage(senderID,"----------");
      		 }
