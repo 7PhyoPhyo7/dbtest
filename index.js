@@ -432,11 +432,11 @@ function searchBooks(senderID,bookname)
                 elmentitem.push("3"+doc.data().link);
                 elmentitem.push("4"+doc.data().stock); 
 
-
+    textMessage(senderID,elmentitem);
         	
         })
 
-        textMessage(senderID,elmentitem);
+    
         
 })
 
