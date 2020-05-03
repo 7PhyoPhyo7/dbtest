@@ -410,6 +410,15 @@ function textBookMessage(senderID,pretext,result){
 		}
 	})
 }
+function textBookAddress(senderID,pretext,result){
+	requestify.post(sendmessageurl, {
+		"recipient":{
+		"id":senderID},
+		"message":{
+			"text":pretext + " : " +result
+		}
+	})
+}
 
 function searchBooks(senderID,bookname)
 {
@@ -417,7 +426,7 @@ function searchBooks(senderID,bookname)
         list.forEach(doc=>
         {
         	textBookMessage(senderID,"BookshopName",doc.id);
-        	textBookMessage(senderID,"Bookshop Address",address);
+        	textBookAddress(senderID,"Bookshop Address",address);
         	textBookMessage(senderID,"Bookshop Website",link);
         	textBookMessage(senderID, "Stock",stock);
         })
