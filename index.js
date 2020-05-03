@@ -425,29 +425,30 @@ function searchBooks(senderID,bookname)
  
    var docid='a';
    var bookwithgenre=[,];
-  // db.collection("Bookkk").get().then(booklist=>{
-  // 	booklist.forEach(doc=>{     
-  //      docid =doc.id;
-  //       db.collection("Bookkk").doc(docid).get().then(genrelist=>{
-  //        genrelist.forEach(doc=>{
-  //        	  // bookwithgenre.push(docid,doc.data().genre);
-  //        	  // console.log(bookwithgenre);
-  //        	  console.log(doc.data().genre);
-  //        })
-  //       })
-  // 	})
-  // })
-
-
-
-  db.collection("Bookkk").get().then(genrelist=>{
+  db.collection("Bookkk").get().then(booklist=>{
+  	booklist.forEach(doc=>{     
+       docid =doc.id;
+        db.collection("Bookkk").get().then(genrelist=>{
          genrelist.forEach(doc=>{
-         	  if(doc.id == 'Doctor')
+         	  if(doc.id == docid)
          	  {
-         	  	console.log(doc.data().genre);
+         	  	bookwithgenre.push(docid,genre);
          	  }
          })
         })
+  	})
+  })
+
+
+
+  // db.collection("Bookkk").get().then(genrelist=>{
+  //        genrelist.forEach(doc=>{
+  //        	  if(doc.id == 'Doctor')
+  //        	  {
+  //        	  	console.log(doc.data().genre);
+  //        	  }
+  //        })
+  //       })
 
 }
 
