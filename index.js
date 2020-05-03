@@ -446,7 +446,7 @@ function searchBooks(senderID,bookname)
 		.then(querySnapshot => {
     querySnapshot.forEach(doc => {
         
-        bookwithgenre.push(doc.id,doc.data());
+        bookwithgenre.push(doc.id,doc.data().genre);
         console.log(bookwithgenre);
     });
 });
