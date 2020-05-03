@@ -427,20 +427,28 @@ function searchBooks(senderID,bookname)
         list.forEach(doc=>
         {
         	
-                elmentitem.push(doc.id);
-                elmentitem.push(doc.data().address);
-                elmentitem.push(doc.data().link);
-                elmentitem.push(doc.data().stock); 
+                elmentitem.push("1"+doc.id);
+                elmentitem.push("2"+doc.data().address);
+                elmentitem.push("3"+doc.data().link);
+                elmentitem.push("4"+doc.data().stock); 
 
 
         	
         })
         var index;
          for (index = 0; index < elmentitem.length; ++index) {
-         console.log(elmentitem[index]);
-         textMessage(senderID,elmentitem[index]);
-}
+            if(elmentitem.includes(1))
+            {
+            	textMessage(senderID,elmentitem[0]);
+            }
+            if(elmentitem.includes(2))
+            {
+            	textMessage(senderID,elmentitem[1]);
+            }
+
+		}
 })
+
 }
 
 
