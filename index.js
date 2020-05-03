@@ -423,6 +423,9 @@ function textBookAddress(senderID,pretext,result){
 function searchBooks(senderID,bookname)
 {
 	var elmentitem = [];
+	var address = '';
+	var link='';
+	var stock ='';
     db.collection("Bookkk").doc(bookname).collection("bookshop").get().then(list => {
         list.forEach(doc=>
         {
@@ -436,10 +439,18 @@ function searchBooks(senderID,bookname)
                     textMessage(senderID,doc.data().link);
                       textMessage(senderID,doc.data().stock);
 
+                      let data = 
+                      {
+                        address =doc.data().address;
+                        link = doc.data().link;
+                        stock = doc.data().stock;
+                      }
+                      elmentitem.push(data);
+
          
         	
         })
-        	
+        	textMessage(senderID,elmentitem);
 
         
 })
