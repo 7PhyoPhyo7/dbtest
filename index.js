@@ -425,6 +425,7 @@ function searchBooks(senderID,bookname)
  
    var docid='a';
     var bookwithgenre=[,];
+    var userwithhobby=[,];
   // db.collection("Bookkk").get().then(booklist=>{
   // 	booklist.forEach(doc=>{     
   //      docid =doc.id;
@@ -444,12 +445,18 @@ function searchBooks(senderID,bookname)
 
           db.collection("Bookkk").get()
 		.then(querySnapshot => {
-    querySnapshot.forEach(doc => {
-        
+    querySnapshot.forEach(doc => {    
         bookwithgenre.push(doc.id,doc.data().genre);
         console.log(bookwithgenre);
-    });
-});
+    })
+})
+		 db.collection("Admin").get()
+		.then(querySnapshot => {
+    querySnapshot.forEach(doc => {    
+        userwithhobby.push(doc.id,doc.data().hobby);
+        console.log(userwithhobby);
+    })
+})
 
 
   // db.collection("Bookkk").get().then(genrelist=>{
