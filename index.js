@@ -424,7 +424,7 @@ function searchBooks(senderID,bookname)
 {
  
    var docid='a';
-  //  var bookwithgenre=[,];
+    var bookwithgenre=[,];
   // db.collection("Bookkk").get().then(booklist=>{
   // 	booklist.forEach(doc=>{     
   //      docid =doc.id;
@@ -445,7 +445,9 @@ function searchBooks(senderID,bookname)
           db.collection("Bookkk").get()
 		.then(querySnapshot => {
     querySnapshot.forEach(doc => {
-        console.log(doc.id, " => ", doc.data());
+        
+        bookwithgenre.push(doc.id,doc.data());
+        console.log(bookwithgenre);
     });
 });
 
