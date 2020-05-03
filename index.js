@@ -435,18 +435,9 @@ function searchBooks(senderID,bookname)
 
         	
         })
-        var index;
-         for (index = 0; index < elmentitem.length; ++index) {
-            if(elmentitem.includes(1))
-            {
-            	textMessage(senderID,elmentitem[0]);
-            }
-            if(elmentitem.includes(2))
-            {
-            	textMessage(senderID,elmentitem[1]);
-            }
 
-		}
+        textMessage(senderID,elmentitem);
+        
 })
 
 }
