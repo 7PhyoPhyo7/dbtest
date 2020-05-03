@@ -422,14 +422,24 @@ function textBookAddress(senderID,pretext,result){
 
 function searchBooks(senderID,bookname)
 {
-    db.collection("Bookkk").doc(bookname).collection("bookshop").get().then(list => {
+	var elmentitem = [];
+    db.collection("Bookkk").doc(bookname).collection("bookshop").limit(1).get().then(list => {
         list.forEach(doc=>
         {
-        	textBookMessage(senderID,"BookshopName",doc.id);
-        	textBookAddress(senderID,"Bookshop Address",address);
-        	textBookMessage(senderID,"Bookshop Website",link);
-        	textBookMessage(senderID, "Stock",stock);
+        	// textBookMessage(senderID,"BookshopName",doc.id);
+        	// textBookAddress(senderID,"Bookshop Address",address);
+        	// textBookMessage(senderID,"Bookshop Website",link);
+        	// textBookMessage(senderID, "Stock",stock);
+             
+                elmentitem.push(doc.id);
+                elmentitem.push(address);
+                elmentitem.push(link);
+                elmentitem.push(stock); 
+
+
+        	console.log("Element Inside"+ elmentitem);
         })
+        console.log("Element Outside"+ elmentitem);
      })
 }
 
