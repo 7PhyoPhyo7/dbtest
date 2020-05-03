@@ -436,25 +436,20 @@ function searchBooks(senderID,bookname)
         	
         })
         
-       
-          for(let int=0;int<=elmentitem.size;int++)
-          {
-          	 
-          	switch(elmentitem)
-            {
-          	case  elmentitem[1] :
-          	textBookMessage(senderID,"bookshopname",elmentitem[0]);
-          	break;
-          	case  elmentitem[2] :
-          	textBookMessage(senderID,"bookshopaddress",elmentitem[1]);
-          	break;
-          	default:
-         	textMessage(senderID,"----------");
-         	}
-          }
-     }).catch(err => {
-    console.log('Error getting documents', err);
-  })
+         elmentitem.forEach(element => { 
+  			 switch(element) 
+  			 {        
+      		case element[0] :
+      		console.log("element",element[0] );
+          textMessage(senderID,element[0]);
+        	break;              
+      		default:
+          textMessage(senderID,"----------");
+     		 }
+  		
+
+		})
+})
 }
 
 
