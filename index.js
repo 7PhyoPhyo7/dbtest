@@ -428,6 +428,7 @@ function searchBooks(senderID,bookname)
   db.collection("Bookkk").get().then(booklist=>{
   	booklist.forEach(doc=>{     
        docid =doc.id;
+       console.log("-----------------",docid);
         db.collection("Bookkk").get().then(genrelist=>{
          genrelist.forEach(doc=>{
          	  console.log("DOc",docid);
