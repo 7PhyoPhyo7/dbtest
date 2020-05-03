@@ -435,13 +435,11 @@ function searchBooks(senderID,bookname)
 
         	
         })
-        
-         elmentitem.forEach(element => { 
-  			 console.log(element[0]);
-  			 console.log(element[1]);
-  		
-
-		})
+        var index;
+         for (index = 0; index < elmentitem.length; ++index) {
+         console.log(elmentitem[index]);
+         textMessage(senderID,elmentitem[index]);
+}
 })
 }
 
