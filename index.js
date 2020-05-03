@@ -435,7 +435,9 @@ function searchBooks(senderID,bookname)
         	
         })
         	elmentitem.forEach(function(item, index, array) {
-  			textMessage(senderID,item);
+  			for (var i = elmentitem.length - 1; i >= 0; i--) {
+  				textMessage(senderID,elmentitem[i]);
+  			}
 })
 
         
