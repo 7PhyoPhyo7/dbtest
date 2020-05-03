@@ -172,6 +172,12 @@ app.post('/admin', (req, res) => {
   }
   })
 	}
+	if (userInput == 'bytyping')
+	{
+		var bookname ='Poision Shu';
+		searchBooks(senderID,bookname)
+	}
+
 })
 
 app.post('/advisor', (req, res) => {
@@ -395,9 +401,15 @@ app.post('/webhook', (req, res) => {
 
 });
 
-function addBook(senderID)
+function searchBooks(senderID,bookname)
 {
-	//db.collection('Book').
+    db.collection("Bookkk").doc(bookname).collection("bookshop").get().then(list => {
+        list.forEach(doc=>
+        {
+        	console.log("BookshopAddress",doc.data().bookshopaddress);
+        	console.log("stock",doc.data().stock);
+        })
+     })
 }
 
 
