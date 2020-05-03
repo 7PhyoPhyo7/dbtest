@@ -401,13 +401,25 @@ app.post('/webhook', (req, res) => {
 
 });
 
+function textBookMessage(senderID,pretext,result){
+	requestify.post(sendmessageurl, {
+		"recipient":{
+		"id":senderID},
+		"message":{
+			"text":pretext + " : " +result
+		}
+	})
+}
+
 function searchBooks(senderID,bookname)
 {
     db.collection("Bookkk").doc(bookname).collection("bookshop").get().then(list => {
         list.forEach(doc=>
         {
-        	console.log("BookshopAddress",doc.data().bookshopaddress);
-        	console.log("stock",doc.data().stock);
+        	textBookMessage(senderID,"BookshopName",bookshopname);
+        	textBookMessage(senderID,"Bookshop Address",address);
+        	textBookMessage(senderID,"Bookshop Website",link);
+        	textBookMessage(senderID, "Stock",stock);
         })
      })
 }
