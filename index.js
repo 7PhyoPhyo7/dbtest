@@ -450,7 +450,7 @@ function searchBooks(senderID,bookname)
         console.log(bookwithgenre);
     })
 })
-		 db.collection("Admin").get()
+		 db.collection("admin").get()
 		.then(querySnapshot => {
     querySnapshot.forEach(doc => {    
         userwithhobby.push(doc.id,doc.data().hobby);
