@@ -440,7 +440,7 @@ function searchBooks(senderID,bookname)
 
 
 
-  db.collection("Bookkk").get().then(genrelist=>{
+  db.collection("Bookkk").doc("Doctor").collection("bookshop").get().then(genrelist=>{
          genrelist.forEach(doc=>{
          	  // bookwithgenre.push(docid,doc.data().genre);
          	  // console.log(bookwithgenre);
