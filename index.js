@@ -422,38 +422,20 @@ function textBookAddress(senderID,pretext,result){
 
 function searchBooks(senderID,bookname)
 {
-	var elmentitem = [];
-	var address = '';
-	var link='';
-	var stock ='';
-    db.collection("Bookkk").doc(bookname).collection("bookshop").get().then(list => {
-        list.forEach(doc=>
-        {
-        	
-                // elmentitem.push(doc.id);
-                // elmentitem.push(doc.data().address);
-                // elmentitem.push(doc.data().link);
-                // elmentitem.push(doc.data().stock); 
-            
-                  textMessage(senderID,doc.data().address);
-                    textMessage(senderID,doc.data().link);
-                      textMessage(senderID,doc.data().stock);
-
-                      let data = 
-                      {
-                        address =doc.data().address;
-                        link = doc.data().link;
-                        stock = doc.data().stock;
-                      }
-                      elmentitem.push(data);
-
-         
-        	
+ 
+   var docid='a';
+   var bookwithgenre=[,];
+  db.collection("Bookkk").get().then(booklist=>{
+  	booklist.forEach(doc=>{     
+       docid =doc.id;
+        db.collection("Bookkk").doc(docid).get().then(genrelist=>{
+         genrelist.forEach(doc=>{
+         	  bookwithgenre.push(docid,doc.data().genre);
+         	  console.log(bookwithgenre);
+         })
         })
-        	textMessage(senderID,elmentitem);
-
-        
-})
+  	})
+  })
 
 }
 
