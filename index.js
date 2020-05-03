@@ -443,14 +443,14 @@ function searchBooks(senderID,bookname)
   // 	})
   // })
 
-//           db.collection("Bookkk").get()
-// 		.then(querySnapshot => {
-//     querySnapshot.forEach(doc => {    
-//         bookwithgenre.push(doc.id,doc.data().genre);
-//         console.log(bookwithgenre);
-//     })
-// })
-		
+          db.collection("Bookkk").get()
+		.then(querySnapshot => {
+    querySnapshot.forEach(doc => {    
+        bookwithgenre.push(doc.id,doc.data().genre);
+        console.log(bookwithgenre);
+    })
+})
+
 		 db.collection("admin").get()
 		.then(querySnapshot => {
     querySnapshot.forEach(doc => {    
@@ -468,6 +468,9 @@ function searchBooks(senderID,bookname)
   //        	  }
   //        })
   //       })
+
+        console.log('----------',userwithhobby.size());
+        console.log('++++++++',userwithhobby.length());
 
 }
 
