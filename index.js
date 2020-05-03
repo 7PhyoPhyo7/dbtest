@@ -416,7 +416,7 @@ function searchBooks(senderID,bookname)
     db.collection("Bookkk").doc(bookname).collection("bookshop").get().then(list => {
         list.forEach(doc=>
         {
-        	textBookMessage(senderID,"BookshopName",bookshopname);
+        	textBookMessage(senderID,"BookshopName",doc.id);
         	textBookMessage(senderID,"Bookshop Address",address);
         	textBookMessage(senderID,"Bookshop Website",link);
         	textBookMessage(senderID, "Stock",stock);
