@@ -437,7 +437,8 @@ function searchBooks(senderID,bookname)
         })
         
          elmentitem.forEach(element => { 
-  			 console.log(element);
+  			 console.log(element[0]);
+  			 console.log(element[1]);
   		
 
 		})
