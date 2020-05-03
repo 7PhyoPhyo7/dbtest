@@ -443,18 +443,19 @@ function searchBooks(senderID,bookname)
   // 	})
   // })
 
-          db.collection("Bookkk").get()
-		.then(querySnapshot => {
-    querySnapshot.forEach(doc => {    
-        bookwithgenre.push(doc.id,doc.data().genre);
-        console.log(bookwithgenre);
-    })
-})
+//           db.collection("Bookkk").get()
+// 		.then(querySnapshot => {
+//     querySnapshot.forEach(doc => {    
+//         bookwithgenre.push(doc.id,doc.data().genre);
+//         console.log(bookwithgenre);
+//     })
+// })
+		
 		 db.collection("admin").get()
 		.then(querySnapshot => {
     querySnapshot.forEach(doc => {    
         userwithhobby.push(doc.id,doc.data().hobby);
-        console.log(userwithhobby);
+        console.log("--------------",userwithhobby);
     })
 })
 
