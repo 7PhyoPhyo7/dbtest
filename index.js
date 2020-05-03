@@ -432,11 +432,12 @@ function searchBooks(senderID,bookname)
                 elmentitem.push("3"+doc.data().link);
                 elmentitem.push("4"+doc.data().stock); 
 
-    textMessage(senderID,elmentitem);
         	
         })
+        	elmentitem.forEach(function(item, index, array) {
+  			console.log(item, index)
+})
 
-    
         
 })
 
