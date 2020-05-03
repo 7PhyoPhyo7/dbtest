@@ -426,20 +426,32 @@ function searchBooks(senderID,bookname)
     db.collection("Bookkk").doc(bookname).collection("bookshop").get().then(list => {
         list.forEach(doc=>
         {
-        	textBookMessage(senderID,"BookshopName",doc.id);
-        	textBookAddress(senderID,"Bookshop Address",doc.data().address);
-        	textBookMessage(senderID,"Bookshop Website",doc.data().link);
-        	textBookMessage(senderID, "Stock",doc.data().stock);
-             
+        	
                 elmentitem.push(doc.id);
                 elmentitem.push(doc.data().address);
                 elmentitem.push(doc.data().link);
                 elmentitem.push(doc.data().stock); 
 
 
-        	console.log("Element Inside"+ elmentitem);
+        	
         })
-        console.log("Element Outside"+ elmentitem);
+        
+       
+          for(let int=0;int<=elmentitem.size;int++)
+          {
+          	 
+          	switch(elmentitem)
+            {
+          	case  elmentitem[1] :
+          	textBookMessage(senderID,"bookshopname",elmentitem[0]);
+          	break;
+          	case  elmentitem[2] :
+          	textBookMessage(senderID,"bookshopaddress",elmentitem[1]);
+          	break;
+          	default:
+         	textMessage(senderID,"----------");
+         	}
+          }
      })
 }
 
