@@ -427,11 +427,16 @@ function searchBooks(senderID,bookname)
         list.forEach(doc=>
         {
         	
-                elmentitem.push(doc.id);
-                elmentitem.push(doc.data().address);
-                elmentitem.push(doc.data().link);
-                elmentitem.push(doc.data().stock); 
+                // elmentitem.push(doc.id);
+                // elmentitem.push(doc.data().address);
+                // elmentitem.push(doc.data().link);
+                // elmentitem.push(doc.data().stock); 
+            
+                  textMessage(doc.data().address);
+                    textMessage(doc.data().link);
+                      textMessage(doc.data().stock);
 
+         
         	
         })
         	
