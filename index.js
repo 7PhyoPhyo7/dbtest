@@ -442,14 +442,12 @@ function searchBooks(senderID,bookname)
   // 	})
   // })
 
-            var i=0;
-         db.collection("Bookkk").get().then(booklist=>{
-         	for(doc in booklist)
-         	{
-         		docid =doc.id;
-         		console.log(docid);
-         	}
-         })
+          db.collection("Bookkk").get()
+		.then(querySnapshot => {
+    querySnapshot.forEach(doc => {
+        console.log(doc.id, " => ", doc.data());
+    });
+});
 
 
   // db.collection("Bookkk").get().then(genrelist=>{
