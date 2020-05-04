@@ -188,9 +188,9 @@ app.post('/advisor', (req, res) => {
 	}
 })
 
-// app.get('/test', (req, res) => {
-// 	searchBooks(2925293107548096, 'Poision Shu');
-// });
+app.get('/test', (req, res) => {
+	searchBooks(2925293107548096, 'Poision Shu');
+});
 
 
 app.post('/user', (req, res) => {
