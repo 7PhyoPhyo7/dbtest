@@ -424,8 +424,7 @@ function searchBooks(senderID,bookname)
 {
  
    var docid='a';
-    let bookwithgenre=[,];
-    let userwithhobby=[,];
+   
   // db.collection("Bookkk").get().then(booklist=>{
   // 	booklist.forEach(doc=>{     
   //      docid =doc.id;
@@ -443,55 +442,57 @@ function searchBooks(senderID,bookname)
   // 	})
   // })
 
-          db.collection("Bookkk").get()
-		.then(querySnapshot => {
-    querySnapshot.forEach(doc => {    
-        bookwithgenre.push(doc.id,doc.data().genre);
-        console.log('BBBBBBBBB--',bookwithgenre);
-    })
-})
+//           db.collection("Bookkk").get()
+// 		.then(querySnapshot => {
+//     querySnapshot.forEach(doc => {    
+//         bookwithgenre.push(doc.id,doc.data().genre);
+//         console.log('BBBBBBBBB--',bookwithgenre);
+//     })
+// })
 
-		 db.collection("admin").get()
-		.then(querySnapshot => {
-    querySnapshot.forEach(doc => {    
-        userwithhobby.push(doc.id,doc.data().hobby);
-        console.log("uuuuuuuuuuuu--",userwithhobby);
-        //console.log('----------',userwithhobby.size());
-        //console.log('++++++++',userwithhobby.length();
-    })
-})
-
-       db.collection("admin").get().then(hobbylist=>{
+// 		 db.collection("admin").get()
+// 		.then(querySnapshot => {
+//     querySnapshot.forEach(doc => {    
+//         userwithhobby.push(doc.id,doc.data().hobby);
+//         console.log("uuuuuuuuuuuu--",userwithhobby);
+//         //console.log('----------',userwithhobby.size());
+//         //console.log('++++++++',userwithhobby.length();
+//     })
+// })
+         let bookwithgenre=[,];
+    	let userwithhobby=[];
+       db.collection("admin").where('id','==',`${senderID}`).get().then(hobbylist=>{
        	   hobbylist.forEach(doc=>{
-       	   	 userwithhobby.push(doc.id,doc.data().hobby);
+       	   	 userwithhobby.push(doc.data().hobby);
        	   })
 
        	   db.collection("Bookkk").get().then(genrelist=>{
        	   	genrelist.forEach(doc=>{
        	   		bookwithgenre.push(doc.id,doc.data().genre);
        	   	})
+          
+          for(var z = 0;z<= userwithhobby.length;z++)
+          {
+          	    for (var row = 1; row <= bookwithgenre.length; ++row)
+        		{
+            		for (var col = 1; col <= row; ++col)
+            		{
+                		if(userwithhobby[z] == bookwithgenre[row][col])
+                		{
+                			console.log("BookName",bookwithgenre[row]);
+                		}
+            		}
 
-           for(var i =0 ; i <= userwithhobby.length; i++)
-           {
-           	   for(var j=0; j<= i;j++)
-           	   {
-           	   	console.log(userwithhobby[i][j]);
-           	   }
-           }
-       	   })
+            		
+        		}
+          }
+          
        })
 
+       	})
 
+       
 
-
-  // db.collection("Bookkk").get().then(genrelist=>{
-  //        genrelist.forEach(doc=>{
-  //        	  if(doc.id == 'Doctor')
-  //        	  {
-  //        	  	console.log(doc.data().genre);
-  //        	  }
-  //        })
-  //       })
 
         
 
