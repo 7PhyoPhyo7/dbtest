@@ -172,12 +172,12 @@ app.post('/admin', (req, res) => {
   }
   })
 	}
-	if (usermessage == 'bytyping')
+	if (userMessage == 'bytyping')
 	{
 		var bookname ='Poision Shu';
 		recomandhBooks(senderID,bookname)
 	}
-	if(usermessage == 'author')
+	if(userMessage == 'author')
 	{
 		requestify.post('https://graph.facebook.com/v2.6/me/messages?access_token='+PageAccessToken,
   {
@@ -435,7 +435,7 @@ app.post('/webhook', (req, res) => {
       	var userInput=webhook_event.postback.payload;
     }
     if (webhook_event.message) {if (webhook_event.message.text) {
-    	var usermessage=webhook_event.message.text;
+    	var userMessage=webhook_event.message.text;
     }
 	if (webhook_event.message.attachments){
 		var userMedia=webhook_event.message.attachments.payload;
