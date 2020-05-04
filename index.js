@@ -497,7 +497,7 @@ function searchBooks(senderID,bookname)
        	   				)
        	   			)
        	   			.map(result => {
-       	   				textMessage(senderID,result.name);
+       	   				textBookMessage(senderID,"Recomanded Book : ",result.name);
        	   			});
                     
        	   		console.log(output);
