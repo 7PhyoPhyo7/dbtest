@@ -461,8 +461,25 @@ function searchBooks(senderID,bookname)
     })
 })
 
- console.log("uuuuuuuuuuuu",userwithhobby);
- console.log('BBBBBBBBB',bookwithgenre);
+       db.collection("admin").get().then(hobbylist=>{
+       	   hobbylist.forEach(doc=>{
+       	   	 userwithhobby.push(doc.id,doc.data().hobby);
+       	   })
+
+       	   db.collection("Bookkk").get().then(genrelist=>{
+       	   	genrelist.forEach(doc=>{
+       	   		bookwithgenre.push(doc.id,doc.data().genre);
+       	   	})
+
+           for(var i =0 ; i <= userwithhobby.length; i++)
+           {
+           	   for(var j=0; j<= i;j++)
+           	   {
+           	   	console.log(userwithhobby[i][j]);
+           	   }
+           }
+       	   })
+       })
 
 
 
