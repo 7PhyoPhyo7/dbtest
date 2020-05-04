@@ -214,7 +214,7 @@ app.post('/admin', (req, res) => {
 	{
 		QuickReplyforAuthor(senderID,"Please Type Author Name!")
 	}
-	if(userMessage == 'authorauthor')
+	if(userInput == 'authorauthor')
 	{
 		console.log("UserInputtttt",userMessage);
         search_type = userMessage;
