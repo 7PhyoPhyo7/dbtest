@@ -478,14 +478,19 @@ function searchBooks(senderID,bookname)
        	   		});
        	   	});
 
-       	   	const output = bookwithgenre
-       	   		.filter(
-       	   			book => book.genre.any(
-       	   				gen => userwithhobby.includes(gen)
-       	   			)
-       	   		);
+       	   	try {
 
-       	   	console.log(output);
+       	   		const output = bookwithgenre
+       	   			.filter(
+       	   				book => book.genre.any(
+       	   					gen => userwithhobby.includes(gen)
+       	   				)
+       	   			);
+
+       	   		console.log(output);
+       	   } catch (e) {
+       	   		console.error(e);
+       	   }
           
        })
 
