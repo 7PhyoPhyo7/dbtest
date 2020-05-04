@@ -496,8 +496,10 @@ function searchBooks(senderID,bookname)
        	   					gen => userwithhobby.includes(gen)
        	   				)
        	   			)
-       	   			.map(result => result.name);
-
+       	   			.map(result => {
+       	   				textMessage(senderID,result.name);
+       	   			});
+                    
        	   		console.log(output);
        	   } catch (e) {
        	   		console.error(e);
