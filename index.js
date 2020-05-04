@@ -474,21 +474,30 @@ function searchBooks(senderID,bookname)
        	   		bookwithgenre.push(doc.id,doc.data().genre);
        	   	})
           
-          for(z = 0;z<= userwithhobby.length;z++)
-          {
-          	    for ( row=1; row <= bookwithgenre.length; ++row)
-        		{
-            		for ( col=1; col <= row; ++col)
-            		{
-                		if(userwithhobby[z] == bookwithgenre[row][col])
-                		{
-                			console.log("BookName",bookwithgenre[row]);
-                		}
-            		}
+          // for(z = 0;z<= userwithhobby.length;z++)
+          // {
+          // 	    for ( row=1; row <= bookwithgenre.length; ++row)
+        		// {
+          //   		for ( col=1; col <= row; ++col)
+          //   		{
+          //       		if(userwithhobby[z] == bookwithgenre[row][col])
+          //       		{
+          //       			console.log("BookName",bookwithgenre[row]);
+          //       		}
+          //   		}
 
             		
-        		}
-          }
+        		// }
+          // }
+
+          for (const type of userwithhobby) {  
+ 			  for (const [ key, value ] of bookwithgenre) {  
+  				   if(type == bookwithgenre[value])
+  				   {
+  				   	console.log(bookwithgenre[key]);
+  				   }
+				}
+			}
           
        })
 
