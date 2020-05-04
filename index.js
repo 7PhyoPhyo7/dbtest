@@ -467,6 +467,7 @@ function searchBooks(senderID,bookname)
        db.collection("admin").where('id','==',`${senderID}`).get().then(hobbylist=>{
        	   hobbylist.forEach(doc=>{
        	   	 userwithhobby.push(doc.data().hobby);
+
        	   })
 
        	   db.collection("Bookkk").get().then(genrelist=>{
@@ -474,6 +475,7 @@ function searchBooks(senderID,bookname)
        	   		bookwithgenre.push(doc.id,doc.data().genre);
        	   	})
           
+
           // for(z = 0;z<= userwithhobby.length;z++)
           // {
           // 	    for ( row=1; row <= bookwithgenre.length; ++row)
@@ -489,15 +491,8 @@ function searchBooks(senderID,bookname)
             		
         		// }
           // }
-
-          for (const type of userwithhobby) {  
- 			  for (const [ key, value ] of bookwithgenre) {  
-  				   if(type == bookwithgenre[value])
-  				   {
-  				   	console.log(bookwithgenre[key]);
-  				   }
-				}
-			}
+          console.log('user',userwithhobby);
+          console.log('book',bookwithgenre);
           
        })
 
