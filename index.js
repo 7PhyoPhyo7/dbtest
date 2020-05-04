@@ -447,7 +447,7 @@ function searchBooks(senderID,bookname)
 		.then(querySnapshot => {
     querySnapshot.forEach(doc => {    
         bookwithgenre.push(doc.id,doc.data().genre);
-        console.log('BBBBBBBBB',bookwithgenre);
+       // console.log('BBBBBBBBB',bookwithgenre);
     })
 })
 
@@ -455,13 +455,14 @@ function searchBooks(senderID,bookname)
 		.then(querySnapshot => {
     querySnapshot.forEach(doc => {    
         userwithhobby.push(doc.id,doc.data().hobby);
-        console.log("uuuuuuuuuuuu",userwithhobby);
+        //console.log("uuuuuuuuuuuu",userwithhobby);
         //console.log('----------',userwithhobby.size());
         //console.log('++++++++',userwithhobby.length();
     })
 })
 
-
+console.log("uuuuuuuuuuuu",userwithhobby);
+console.log('BBBBBBBBB',bookwithgenre);
   // db.collection("Bookkk").get().then(genrelist=>{
   //        genrelist.forEach(doc=>{
   //        	  if(doc.id == 'Doctor')
