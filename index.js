@@ -461,6 +461,9 @@ function searchBooks(senderID,bookname)
 // })
          let bookwithgenre=[,];
     	let userwithhobby=[];
+    	var z=0;
+    	var row =1;
+    	var col=1;
        db.collection("admin").where('id','==',`${senderID}`).get().then(hobbylist=>{
        	   hobbylist.forEach(doc=>{
        	   	 userwithhobby.push(doc.data().hobby);
@@ -471,11 +474,11 @@ function searchBooks(senderID,bookname)
        	   		bookwithgenre.push(doc.id,doc.data().genre);
        	   	})
           
-          for(let z = 0;z<= userwithhobby.length;z++)
+          for(z = 0;z<= userwithhobby.length;z++)
           {
-          	    for (let row = 1; row <= bookwithgenre.length; ++row)
+          	    for ( row =1; row <= bookwithgenre.length; ++row)
         		{
-            		for (let col = 1; col <= row; ++col)
+            		for ( col =1; col <= row; ++col)
             		{
                 		if(userwithhobby[z] == bookwithgenre[row][col])
                 		{
