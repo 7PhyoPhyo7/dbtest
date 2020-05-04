@@ -214,16 +214,17 @@ app.post('/admin', (req, res) => {
 	{
 		QuickReplyforAuthor(senderID,"Please Type Author Name!")
 	}
-	if(userInput == 'authorauthor')
+	if(userMessage == 'authorauthor')
 	{
-		console.log("UserInputtttt",userInput);
-        search_type = userInput;
+		console.log("UserInputtttt",userMessage);
+        search_type = userMessage;
         console.log("search_typeeee",search_type);
 	}
 	if(search_type == 'authorauthor')
 	{
 		console.log("search_typeauthor",search_type);
 	    byAuthor(senderID,userMessage);
+	    search_type = '';
 	}
 
 })
