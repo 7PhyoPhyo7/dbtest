@@ -472,27 +472,20 @@ function searchBooks(senderID,bookname)
 
        	   db.collection("Bookkk").get().then(genrelist=>{
        	   	genrelist.forEach(doc=>{
-       	   		bookwithgenre.push(doc.id,doc.data().genre);
-       	   	})
-          
+       	   		bookwithgenre.push({
+       	   			name: doc.id,
+       	   			genre: doc.data().genre // array
+       	   		});
+       	   	});
 
-          // for(z = 0;z<= userwithhobby.length;z++)
-          // {
-          // 	    for ( row=1; row <= bookwithgenre.length; ++row)
-        		// {
-          //   		for ( col=1; col <= row; ++col)
-          //   		{
-          //       		if(userwithhobby[z] == bookwithgenre[row][col])
-          //       		{
-          //       			console.log("BookName",bookwithgenre[row]);
-          //       		}
-          //   		}
+       	   	const output = bookwithgenre
+       	   		.filter(
+       	   			book => book.genre.any(
+       	   				gen => userwithhobby.includes(gen)
+       	   			)
+       	   		);
 
-            		
-        		// }
-          // }
-          console.log('user',userwithhobby);
-          console.log('book',bookwithgenre);
+       	   	console.log(output);
           
        })
 
