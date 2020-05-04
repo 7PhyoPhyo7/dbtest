@@ -172,12 +172,12 @@ app.post('/admin', (req, res) => {
   }
   })
 	}
-	if (userInput == 'bytyping')
+	if (usermessage == 'bytyping')
 	{
 		var bookname ='Poision Shu';
 		recomandhBooks(senderID,bookname)
 	}
-	if(userInput == 'author')
+	if(usermessage == 'author')
 	{
 		requestify.post('https://graph.facebook.com/v2.6/me/messages?access_token='+PageAccessToken,
   {
