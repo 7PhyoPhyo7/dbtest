@@ -424,8 +424,8 @@ function searchBooks(senderID,bookname)
 {
  
    var docid='a';
-    var bookwithgenre=[,];
-    var userwithhobby=[,];
+    let bookwithgenre=[,];
+    let userwithhobby=[,];
   // db.collection("Bookkk").get().then(booklist=>{
   // 	booklist.forEach(doc=>{     
   //      docid =doc.id;
@@ -461,8 +461,12 @@ function searchBooks(senderID,bookname)
     })
 })
 
-console.log("uuuuuuuuuuuu",userwithhobby);
-console.log('BBBBBBBBB',bookwithgenre);
+ console.log("uuuuuuuuuuuu",userwithhobby);
+ console.log('BBBBBBBBB',bookwithgenre);
+
+
+
+
   // db.collection("Bookkk").get().then(genrelist=>{
   //        genrelist.forEach(doc=>{
   //        	  if(doc.id == 'Doctor')
