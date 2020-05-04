@@ -15,7 +15,7 @@
 app.use(express.static('public'));
 app.use(express.urlencoded());
 
-
+ var search_type="";
 app.set('view engine', 'ejs');
 app.set('views', __dirname+'/public');
 var admin = require("firebase-admin");
@@ -175,7 +175,51 @@ app.post('/admin', (req, res) => {
 	if (userInput == 'bytyping')
 	{
 		var bookname ='Poision Shu';
-		searchBooks(senderID,bookname)
+		recomandhBooks(senderID,bookname)
+	}
+	if(userInput == 'author')
+	{
+		requestify.post('https://graph.facebook.com/v2.6/me/messages?access_token='+PageAccessToken,
+  {
+    "recipient":{
+      "id":senderID
+    },
+  "message":{
+   "attachment":{
+        "type":"template",
+        "payload":{
+          "template_type":"generic",
+          "elements":[
+             {
+              "title":'hi',
+              "subtitle":"Please Register Book",
+                "buttons":[
+                  
+                  {
+                    "type":"postback",
+                    "payload":"byauthor",
+                    "title":"By Author",
+                    "webview_height_ratio": "full"
+                  },
+               ]}
+
+        ]
+      }
+    }
+  }
+  })
+	}
+	if(userInput == 'byauthor')
+	{
+		QuickReplyforAuthor(senderID,"Please Type Author Name!")
+	}
+	if(userInput == 'authorauthor')
+	{
+        search_type = userInput;
+	}
+	if(search_type == 'authorauthor')
+	{
+	    byAuthor(senderID,usermessage);
 	}
 
 })
@@ -192,6 +236,38 @@ app.post('/advisor', (req, res) => {
 // 	searchBooks(2925293107548096, 'Poision Shu');
 // });
 
+ function byAuthor(senderID,usermessage)
+ {
+ 	db.collection("Bookkk").where('author','==',`${usermessage}`).get().then(bookauthorlist=>{
+ 		bookauthorlist.forEach(doc=>{
+ 			textMessage(senderID,doc.id);
+ 			console.log("BBookName",doc.id);
+ 		})
+ 	})
+ }
+
+ function QuickReplyforAuthor(senderID,text)
+  {
+    requestify.post(sendmessageurl,
+   {  
+      "recipient":{
+        "id":senderID
+  },
+  
+  "message":{
+      "text": "hello",
+       "quick_replies":[
+      {
+        "content_type":"text",
+        "title":text,
+        "payload":"authorauthor"
+        
+      }
+    ]
+  }
+  }).then(result=>{ console.log("ok")
+      }).catch(err=>{console.log("err",err)}) 
+  }
 
 app.post('/user', (req, res) => {
 	var userInput = req.body.userInput
@@ -359,7 +435,7 @@ app.post('/webhook', (req, res) => {
       	var userInput=webhook_event.postback.payload;
     }
     if (webhook_event.message) {if (webhook_event.message.text) {
-    	var userInput=webhook_event.message.text;
+    	var usermessage=webhook_event.message.text;
     }
 	if (webhook_event.message.attachments){
 		var userMedia=webhook_event.message.attachments.payload;
@@ -424,7 +500,7 @@ function textBookAddress(senderID,pretext,result){
 	})
 }
 
-function searchBooks(senderID,bookname)
+function recomandhBooks(senderID,bookname)
 {
  
    var docid='a';
