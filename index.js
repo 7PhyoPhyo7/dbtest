@@ -482,7 +482,7 @@ function searchBooks(senderID,bookname)
 
        	   		const output = bookwithgenre
        	   			.filter(
-       	   				book => book.genre.any(
+       	   				book => book.genre.some(
        	   					gen => userwithhobby.includes(gen)
        	   				)
        	   			);
