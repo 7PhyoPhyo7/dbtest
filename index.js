@@ -471,11 +471,11 @@ function searchBooks(senderID,bookname)
        	   		bookwithgenre.push(doc.id,doc.data().genre);
        	   	})
           
-          for(var z = 0;z<= userwithhobby.length;z++)
+          for(let z = 0;z<= userwithhobby.length;z++)
           {
-          	    for (var row = 1; row <= bookwithgenre.length; ++row)
+          	    for (let row = 1; row <= bookwithgenre.length; ++row)
         		{
-            		for (var col = 1; col <= row; ++col)
+            		for (let col = 1; col <= row; ++col)
             		{
                 		if(userwithhobby[z] == bookwithgenre[row][col])
                 		{
