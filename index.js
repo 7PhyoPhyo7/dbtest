@@ -216,10 +216,13 @@ app.post('/admin', (req, res) => {
 	}
 	if(userInput == 'authorauthor')
 	{
+		console.log("UserInputtttt",userInput);
         search_type = userInput;
+        console.log("search_typeeee",search_type);
 	}
 	if(search_type == 'authorauthor')
 	{
+		console.log("search_typeauthor",search_type);
 	    byAuthor(senderID,userMessage);
 	}
 
