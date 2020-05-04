@@ -491,6 +491,8 @@ function searchBooks(senderID,bookname)
        	   } catch (e) {
        	   		console.error(e);
        	   }
+
+       	   console.log({ userwithhobby, bookwithgenre });
           
        })
 
