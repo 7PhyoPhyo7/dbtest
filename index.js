@@ -125,6 +125,7 @@ function textMessage(senderID,text){
 
 app.post('/admin', (req, res) => {
 	var userInput = req.body.userInput
+	var userMessage = req.body.userMessage
 	var senderID = req.body.senderID
 	var bookname = "Poision Shu"
 	if(userInput == 'Hi'){
@@ -219,7 +220,7 @@ app.post('/admin', (req, res) => {
 	}
 	if(search_type == 'authorauthor')
 	{
-	    byAuthor(senderID,usermessage);
+	    byAuthor(senderID,userMessage);
 	}
 
 })
@@ -461,6 +462,7 @@ app.post('/webhook', (req, res) => {
 			}else{
 				requestify.post('https://dbtestingwp.herokuapp.com/admin', {
 					userInput: userInput || null,
+					userMessage: userMessage || null,
 					senderID: senderID,
 					image: userMedia
 				})
