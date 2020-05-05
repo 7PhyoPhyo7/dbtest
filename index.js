@@ -213,10 +213,26 @@ app.post('/admin', (req, res) => {
 	}
 	if(userInput == 'byauthor')
 	{
-	   search_type = userInput;
+	   //search_type = userInput;
+	   QuickReplyforAuthor(senderID,"Please Type AuthorName")
 	}
-	if(search_type == 'byauthor')
+	//if(search_type == 'byauthor')
+	if(userQuickreply == 'authorauthor')
 	{
+		search_type = userQuickreply;
+		// console.log("UsermMessage",userMessage);
+		// db.collection("Bookkk").where("author",'==',`${userMessage}`).get().then(bauthorlist=>{
+		// 	bauthorlist.forEach(doc=>{
+		// 		console.log("Book",doc.id);
+  //               textMessage(senderID,doc.id);                 
+ 
+		// 	})
+		// })	
+		console.log("Searchtype",search_type);
+	}
+	if(search_type == 'authorauthor')
+	{
+		console.log("searrchtype",search_type);
 		console.log("UsermMessage",userMessage);
 		db.collection("Bookkk").where("author",'==',`${userMessage}`).get().then(bauthorlist=>{
 			bauthorlist.forEach(doc=>{
@@ -224,7 +240,7 @@ app.post('/admin', (req, res) => {
                 textMessage(senderID,doc.id);                 
  
 			})
-		})	
+		})
 	}
 	
 
