@@ -217,6 +217,7 @@ app.post('/admin', (req, res) => {
 	}
 	if(search_type == 'byauthor')
 	{
+		console.log("UsermMessage",userMessage);
 		db.collection("Bookkk").where('author','==',`${userMessage}`).get().then(bookauthorlist=>{
  		bookauthorlist.forEach(doc=>{
  			textMessage(senderID,doc.id);
