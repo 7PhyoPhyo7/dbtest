@@ -225,6 +225,7 @@ app.post('/admin', (req, res) => {
 	else if(search_type == 'authorauthor')
 	{
 		console.log("search_typeauthor",search_type);
+		console.log("usermessageeee",userMessage);
 	    byAuthor(senderID,userMessage);
 	    search_type = '';
 	}
