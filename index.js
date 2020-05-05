@@ -213,22 +213,18 @@ app.post('/admin', (req, res) => {
 	}
 	if(userInput == 'byauthor')
 	{
-		QuickReplyforAuthor(senderID,"Please Type Author Name!")
+	   search_type = userInput;
 	}
-	else if(userQuickreply=='authorauthor')
+	if(search_type == 'byauthor')
 	{
-		//textMessage(senderID,"I am reach userQuickreply")
-		console.log("UserInputt",userQuickreply);
-        search_type = userQuickreply;
-        console.log("search_typeeee",search_type);
+		db.collection("Bookkk").where('author','==',`${usermessage}`).get().then(bookauthorlist=>{
+ 		bookauthorlist.forEach(doc=>{
+ 			textMessage(senderID,doc.id);
+ 			console.log("BBookName",doc.id);
+ 		})
+ 	})
 	}
-	else if(search_type == 'authorauthor')
-	{
-		console.log("search_typeauthor",search_type);
-		console.log("usermessageeee",userMessage);
-	    byAuthor(senderID,userMessage);
-	    search_type = '';
-	}
+	
 
 })
 
