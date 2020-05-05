@@ -253,7 +253,7 @@ app.post('/advisor', (req, res) => {
  	// 	})
  	// })
  	textMessage("SendID",senderID);
- 	textMessage("FinalUserMessage"userMessage);
+ 	textMessage("FinalUserMessage",userMessage);
  }
 
  function QuickReplyforAuthor(senderID,text)
