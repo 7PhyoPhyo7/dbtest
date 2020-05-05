@@ -218,7 +218,7 @@ app.post('/admin', (req, res) => {
 	else if(userQuickreply=='authorauthor')
 	{
 		//textMessage(senderID,"I am reach userQuickreply")
-		console.log("UserInputtttt",userQuickreply);
+		console.log("UserInputt",userQuickreply);
         search_type = userQuickreply;
         console.log("search_typeeee",search_type);
 	}
