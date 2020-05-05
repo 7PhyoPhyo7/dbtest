@@ -214,10 +214,10 @@ app.post('/admin', (req, res) => {
 	{
 		QuickReplyforAuthor(senderID,"Please Type Author Name!")
 	}
-	if(userMessage == 'authorauthor')
+	if(userQuickreply == 'authorauthor')
 	{
-		console.log("UserInputtttt",userMessage);
-        search_type = userMessage;
+		console.log("UserInputtttt",userQuickreply);
+        search_type = userQuickreply;
         console.log("search_typeeee",search_type);
 	}
 	if(search_type == 'authorauthor')
@@ -258,12 +258,12 @@ app.post('/advisor', (req, res) => {
       "recipient":{
         "id":senderID
   },
-  "messaging_type": "RESPONSE",
+  
   "message":{
       "text": "hello",
        "quick_replies":[
       {
-        "type":"postback",
+        "content_type":"text",
         "title":text,
         "payload":"authorauthor"
         
@@ -439,13 +439,22 @@ app.post('/webhook', (req, res) => {
       if(webhook_event.postback){
       	var userInput=webhook_event.postback.payload;
     }
-    if (webhook_event.message) {if (webhook_event.message.text) {
-    	var userMessage=webhook_event.message.text;
-    }
-	if (webhook_event.message.attachments){
-		var userMedia=webhook_event.message.attachments.payload;
+    if (webhook_event.message) {
+    	if (webhook_event.message.text) 
+    	{
+    		var userMessage=webhook_event.message.text;
+    	}
+	
+		if (webhook_event.message.attachments)
+		{
+			var userMedia=webhook_event.message.attachments.payload;
+		}
 
-	}}
+		if(webhook_event.message.quick_replies)
+		{
+			var userQuickreply=webhook_event.message.quick_replies.payload;
+		}
+}
 	 
 		db.collection('admin').where('id','==',`${senderID}`).get().then(adminList => {
 			if(adminList.empty){
