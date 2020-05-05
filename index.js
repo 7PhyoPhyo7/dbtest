@@ -452,9 +452,9 @@ app.post('/webhook', (req, res) => {
 			var userMedia=webhook_event.message.attachments.payload;
 		}
 
-		if(webhook_event.message.quick_replies)
+		if(webhook_event.message.quick_reply)
 		{
-			var userQuickreply=webhook_event.message.quick_replies.payload;
+			var userQuickreply=webhook_event.message.quick_reply.payload;
 		}
 }
 	 
