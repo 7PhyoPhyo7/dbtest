@@ -215,11 +215,12 @@ app.post('/admin', (req, res) => {
 	{
 		QuickReplyforAuthor(senderID,"Please Type Author Name!")
 	}
-	else if(userQuickreply == 'authorauthor')
+	else if(userQuickreply)
 	{
-		console.log("UserInputtttt",userQuickreply);
-        search_type = userQuickreply;
-        console.log("search_typeeee",search_type);
+		textMessage(senderID,"I am reach userQuickreply")
+		// console.log("UserInputtttt",userQuickreply);
+  //       search_type = userQuickreply;
+  //       console.log("search_typeeee",search_type);
 	}
 	else if(search_type == 'authorauthor')
 	{
