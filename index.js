@@ -126,6 +126,7 @@ function textMessage(senderID,text){
 app.post('/admin', (req, res) => {
 	var userInput = req.body.userInput
 	var userMessage = req.body.userMessage
+	var userQuickreply = req.body.userQuickreply
 	var senderID = req.body.senderID
 	var bookname = "Poision Shu"
 	if(userInput == 'Hi'){
@@ -476,6 +477,7 @@ app.post('/webhook', (req, res) => {
 				requestify.post('https://dbtestingwp.herokuapp.com/admin', {
 					userInput: userInput || null,
 					userMessage: userMessage || null,
+					userQuickreply: userQuickreply || null,
 					senderID: senderID,
 					image: userMedia
 				})
