@@ -263,7 +263,7 @@ app.post('/advisor', (req, res) => {
       "text": "hello",
        "quick_replies":[
       {
-        "content_type":"text",
+        "type":"postback",
         "title":text,
         "payload":"authorauthor"
         
