@@ -244,14 +244,16 @@ app.post('/advisor', (req, res) => {
 // 	searchBooks(2925293107548096, 'Poision Shu');
 // });
 
- function byAuthor(senderID,usermessage)
+ function byAuthor(senderID,userMessage)
  {
- 	db.collection("Bookkk").where('author','==',`${usermessage}`).get().then(bookauthorlist=>{
- 		bookauthorlist.forEach(doc=>{
- 			textMessage(senderID,doc.id);
- 			console.log("BBookName",doc.id);
- 		})
- 	})
+ 	// db.collection("Bookkk").where('author','==',`${usermessage}`).get().then(bookauthorlist=>{
+ 	// 	bookauthorlist.forEach(doc=>{
+ 	// 		textMessage(senderID,doc.id);
+ 	// 		console.log("BBookName",doc.id);
+ 	// 	})
+ 	// })
+ 	textMessage("SendID",senderID);
+ 	textMessage("FinalUserMessage"userMessage);
  }
 
  function QuickReplyforAuthor(senderID,text)
