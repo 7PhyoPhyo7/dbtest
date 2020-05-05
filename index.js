@@ -214,7 +214,7 @@ app.post('/admin', (req, res) => {
 	{
 		QuickReplyforAuthor(senderID,"Please Type Author Name!")
 	}
-	if(userInput == 'authorauthor')
+	if(userMessage == 'authorauthor')
 	{
 		console.log("UserInputtttt",userMessage);
         search_type = userMessage;
@@ -258,7 +258,7 @@ app.post('/advisor', (req, res) => {
       "recipient":{
         "id":senderID
   },
-  
+  "messaging_type": "RESPONSE",
   "message":{
       "text": "hello",
        "quick_replies":[
